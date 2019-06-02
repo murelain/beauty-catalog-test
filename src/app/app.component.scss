@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  background: linear-gradient(135deg, #f2faf9 0%, #dce5e4 47%, #dce5e4 100%);
+
+  .main-layout {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: calc(100vh);
+  }
+}

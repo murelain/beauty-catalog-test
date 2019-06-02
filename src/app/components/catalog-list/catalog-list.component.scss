@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  padding-top: 30px;
+
+  .catalog__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .catalog__spinner {
+    position: absolute;
+    display: block;
+    text-align: center;
+    top: 40px;
+    left: 50%;
+  }
+  .icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    &--list-view {
+      background-image: url('../../assets/lines.svg');
+    }
+    &--grid-view {
+      background-image: url('../../assets/grid.svg');
+    }
+    &--home {
+      background-image: url('../../assets/home.png');
+      background-size: cover;
+    }
+  }
+}

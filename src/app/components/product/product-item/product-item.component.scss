@@ -1,0 +1,76 @@
+:host {
+  .product-item {
+    transition: all 0.2s;
+
+    &:hover {
+      box-shadow: 2px 4px 12px 0px #c5c5c5;
+      cursor: pointer;
+
+      .product-item__btn-trash {
+        opacity: 1;
+      }
+    }
+    .product-item__body {
+      display: flex;
+      align-items: center;
+    }
+    
+    &.list-view {
+      .card-title {
+        margin-bottom: 0;
+      }
+      .product-item__body {
+        &__img {
+          width: 60px;
+          img {
+            width: 100%;
+          }
+        }
+        &__name {
+          width: 200px;
+        }
+        &__about {
+          flex-grow: 1;
+        }
+        &__views {
+          width: 100px;
+        }
+      }
+    }
+
+    &.grid-view {
+      .product-item__body {
+        display: flex;
+        flex-direction: column;
+        &__img {
+          width: 200px;
+          img {
+            width: 100%;
+          }
+        }
+
+        .product-item__btn-trash {
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+      }
+    }
+
+    .product-item__btn-trash {
+      opacity: 0;
+    
+  
+    }
+
+    .icon {
+      display: block;
+      width: 15px;
+      height: 15px;
+
+      &--trash {
+        background-image: url('../../../assets/garbage.svg');
+      }
+    }
+  }
+}

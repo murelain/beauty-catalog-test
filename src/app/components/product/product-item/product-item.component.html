@@ -1,0 +1,16 @@
+<div class="product-item card mt-3 mb-3" [ngClass]="view" (click)="openProductDetails()">
+  <div class="card-body product-item__body">
+    <div class="card-img product-item__body__img">
+      <img [src]="product.image_url" />
+    </div>
+    <h5 class="card-title product-item__body__name">{{ product.name }}</h5>
+    <div class="product-item__body__about">{{ product.about }}</div>
+    <div class="product-item__body__views">
+      <small class="text-muted">Views: {{ product.views }}</small>
+    </div>
+    <button class="btn btn-xs btn-light product-item__btn-trash" (click)="deleteProduct($event)">
+      <span class="icon icon--trash"></span>
+    </button>
+
+  </div>
+</div>

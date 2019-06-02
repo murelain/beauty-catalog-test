@@ -1,0 +1,10 @@
+<div class="dashboard">
+  <h1 class="mb-3">Beauty Catalog</h1>
+  <div *ngIf="!isLoading" class="text-muted mb-3" >
+      Total Products: {{totalProducts}} / 
+      Total Views: {{totalViews}} 
+  </div>
+  <app-spinner *ngIf="isLoading"></app-spinner>
+  <button class="btn btn-outline-dark" [routerLink]="['/list']">View Catalog</button>
+ 
+</div>

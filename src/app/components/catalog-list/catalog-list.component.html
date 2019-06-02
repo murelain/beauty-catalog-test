@@ -1,0 +1,24 @@
+<div class="catalog">
+  <div class="catalog__buttons">
+    <button class="btn btn-light " [routerLink]="'/'">
+      <span class="icon icon--home"></span>
+    </button>
+    <button class="btn btn-light" (click)="toggleView()">
+      <span class="icon" [ngClass]="!isListViewActive ? 'icon--list-view' : 'icon--grid-view'"></span>
+    </button>
+  </div>
+  <!-- <app-spinner *ngIf="isLoading" class="catalog__spinner"></app-spinner> -->
+  <div class="row">
+    <app-product-item
+      *ngFor="let product of productService.productsObservable | async"
+      [ngClass]="isListViewActive ? 'col-md-12' : 'col-md-3'"
+      [view]="isListViewActive ? 'list-view' : 'grid-view'"
+      [product]="product"
+    ></app-product-item>
+  </div>
+  <div>
+    <button (click)="addNewProduct()" class="btn btn-outline-dark">
+      Add New Product
+    </button>
+  </div>
+</div>
