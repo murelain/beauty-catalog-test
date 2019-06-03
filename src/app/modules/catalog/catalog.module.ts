@@ -7,6 +7,7 @@ import { ProductCardComponent } from './../../components/product/product-view-ca
 import { ProductItemComponent } from './../../components/product/product-item/product-item.component';
 import { ProductFormComponent } from './../../components/product/product-form/product-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -18,13 +19,16 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     CatalogListComponent,
-    // ProductCardComponent,
-    // ProductFormComponent,
     ProductItemComponent,
-    
+
   ],
-  imports: [RouterModule.forChild(routes), CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    RouterModule.forChild(routes),
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    SharedModule],
   exports: [RouterModule, CommonModule],
-  // entryComponents: [ProductCardComponent, ProductFormComponent],
+
 })
 export default class CatalogModule { }

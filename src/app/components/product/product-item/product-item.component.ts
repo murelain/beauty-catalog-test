@@ -12,6 +12,7 @@ export class ProductItemComponent implements OnInit {
 
   @Input() product: any;
   @Input() view: string;
+
   constructor(private modalService: NgbModal, private productService: ProductService) { }
 
   ngOnInit() {
@@ -23,9 +24,20 @@ export class ProductItemComponent implements OnInit {
     this.productService.updateProduct(this.product);
   }
 
-  @HostListener('click')
-  public deleteProduct(event: any) {
+  public deleteProduct(content: any, event: any) {
+    if (event) {
       event.stopPropagation();
-      this.productService.removeProduct(this.product);
+    }
+    const modalRef = this.modalService.open(content);
+
+    modalRef.result
+      .then(res => {
+        if (res) {
+          this.productService.removeProduct(this.product);
+        }
+      })
+      .catch(err => {
+        console.log('Error in deleting item', err);
+      });
   }
 }

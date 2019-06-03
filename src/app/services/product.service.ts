@@ -13,7 +13,7 @@ export class ProductService {
   public productsTotal: Number;
   public viewsTotal: Number;
   public productsObservable: Observable<ProductModel[]>;
-  public isLoading = false;
+  public inProgress = false;
 
   constructor(private http: HttpClient, private modalService: NgbModal) {
     this.productsObservable = this.getProducts();
@@ -29,50 +29,88 @@ export class ProductService {
   }
 
   addProductModal(): Observable<any> {
+
     return new Observable(o => {
       this.modalService.open(ProductFormComponent)
         .result
-        .then(res => {
-          this.addProduct(res.getRawValue()).subscribe(res2 => {
-            this.productsObservable = this.getProducts();
-            o.next(res2);
-          });
+        .then(
+          newProductForm => {
+            this.inProgress = true;
+            this.addProduct(newProductForm.getRawValue())
+              .subscribe(
+                res => {
+                  this.productsObservable = this.getProducts();
+                  o.next(res);
+                },
+                () => {
+                  console.log('Error occured while adding product');
+                },
+                () => {
+                  this.inProgress = false;
+                });
+          })
+        .catch(err => {
+          this.inProgress = false;
+          console.log('Product has not been added');
         });
-
-    })
-  }
-
-  removeProduct(product: any) {
-    return this.http.delete(`/api/products/${product.id}`).subscribe(() => {
-       this.productsObservable = this.getProducts();
     });
   }
 
-  get totalProductsCount():Observable<any> {
-    return new Observable(o => {
-      this.productsObservable.subscribe(list => {
-       o.next(list.length);
-     });
-   });
- }
+  removeProduct(product: ProductModel) {
+    if (!product) {
+      return;
+    }
+    this.inProgress = true;
+    this.http.delete(`/api/products/${product.id}`)
+      .subscribe(
+        () => {
+          this.productsObservable = this.getProducts();
+        },
+        err => {
+          console.log('Error occured while deleting');
+        },
+        () => {
+          console.log('product deleted');
+          this.inProgress = false;
+        });
+  }
 
-  get totalViewsCount(): Observable<any>{
+  get totalProductsCount(): Observable<any> {
     return new Observable(o => {
-       this.productsObservable.subscribe(list => {
-        const count = list.reduce((views, product) => {
-          return views + product.views;
-        }, 0);
-        o.next(count);
-      });
+      this.productsObservable.subscribe(
+        list => {
+          o.next(list.length);
+        },
+        err => {
+          console.log('Error occured while getting total count');
+        });
     });
   }
 
-  updateProduct(product: any) {
+  get totalViewsCount(): Observable<any> {
+    return new Observable(o => {
+      this.productsObservable.subscribe(
+        list => {
+          const count = list.reduce((views, product) => {
+            return views + product.views;
+          }, 0);
+          o.next(count);
+        },
+        err => {
+          console.log('Error occured while getting views count');
+        });
+    });
+  }
+
+  updateProduct(product: ProductModel) {
     product.views += 1;
-    return this.http.post('/api/products', product).subscribe(() => {
-      //suppose we get an actual result, meanwhile simulating it here
+    this.http.post('/api/products', product).subscribe(() => {
+      // suppose we get an actual result, meanwhile simulating it here
       return of(product);
-    });
+    },
+      err => {
+        console.log('Error occured while getting total count');
+      });
   }
 
 

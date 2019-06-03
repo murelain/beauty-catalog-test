@@ -41,7 +41,13 @@ export class CatalogListComponent implements OnInit {
   }
 
   loadProducts() {
+    this.isLoading = true;
     this.productsObservable = this.productService.productsObservable;
+    this.productsObservable.subscribe(res => {
+      this.isLoading = false;
+    }, err => {
+      this.isLoading = false;
+    });
   }
 
   public toggleView() {

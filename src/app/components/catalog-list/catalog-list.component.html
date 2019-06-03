@@ -3,22 +3,22 @@
     <button class="btn btn-light " [routerLink]="'/'">
       <span class="icon icon--home"></span>
     </button>
+    <div>
+      <button (click)="addNewProduct()" class="btn btn-light mr-1">
+      Add New +
+    </button>
     <button class="btn btn-light" (click)="toggleView()">
       <span class="icon" [ngClass]="!isListViewActive ? 'icon--list-view' : 'icon--grid-view'"></span>
     </button>
+    </div>
   </div>
-  <!-- <app-spinner *ngIf="isLoading" class="catalog__spinner"></app-spinner> -->
   <div class="row">
+    <app-spinner class="catalog__spinner" *ngIf="isLoading || productService.inProgress"></app-spinner>
     <app-product-item
       *ngFor="let product of productService.productsObservable | async"
       [ngClass]="isListViewActive ? 'col-md-12' : 'col-md-3'"
       [view]="isListViewActive ? 'list-view' : 'grid-view'"
       [product]="product"
     ></app-product-item>
-  </div>
-  <div>
-    <button (click)="addNewProduct()" class="btn btn-outline-dark">
-      Add New Product
-    </button>
   </div>
 </div>

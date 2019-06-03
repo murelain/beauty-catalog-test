@@ -12,7 +12,7 @@ import { FakeDbService } from './fake-db/fake-db.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductCardComponent } from './components/product/product-view-card/product-view-card.component';
 import { ProductFormComponent } from './components/product/product-form/product-form.component';
-import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,6 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     DashboardComponent,
     ProductCardComponent,
     ProductFormComponent,
-    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,9 +28,10 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     NgbModalModule,
     ReactiveFormsModule,
     InMemoryWebApiModule.forRoot(FakeDbService, {
-      delay: 300,
+      delay: 1000,
       passThruUnknownUrl: true
-    })
+    }),
+    SharedModule
   ],
   providers: [],
   entryComponents: [ProductCardComponent, ProductFormComponent],
