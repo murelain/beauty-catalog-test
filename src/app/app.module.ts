@@ -13,6 +13,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductCardComponent } from './components/product/product-view-card/product-view-card.component';
 import { ProductFormComponent } from './components/product/product-form/product-form.component';
 import { SharedModule } from './shared/shared.module';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
     DashboardComponent,
     ProductCardComponent,
     ProductFormComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
