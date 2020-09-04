@@ -283,6 +283,13 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@ng-bootstrap/ng-bootstrap@^4.2.0":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-4.2.2.tgz#a1c3a9576656cb4f793bbc3df56dfbdeb098f2fb"
+  integrity sha512-v8QmC17bv9he5Ep6zutaI9aQ2w/2NqySP0fejOKe7cacKpGUqsLIakpyd2FD7mfZu7pSCCtHYpRWR+h6yq+Ngg==
+  dependencies:
+    tslib "^1.9.0"
+
 "@ngtools/webpack@7.1.4":
   version "7.1.4"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-7.1.4.tgz#632ece6ed8e05fe743554cc935be36a653376f01"
@@ -613,6 +620,11 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
+
+angular-in-memory-web-api@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/angular-in-memory-web-api/-/angular-in-memory-web-api-0.8.0.tgz#6cb63c9e8e22c59383dfcccaf0512791400bf4e1"
+  integrity sha512-2n0YtCLFxZo4JePHvH6q8b7JmBmhZq44Ic8VaBPRSXE4vAmlKXHU+kI2quNa612EAETDRkZcvLOU8K8CkhIZgQ==
 
 ansi-colors@^3.0.0:
   version "3.2.4"
@@ -1078,6 +1090,11 @@ bonjour@^3.5.0:
     dns-txt "^2.0.2"
     multicast-dns "^6.0.1"
     multicast-dns-service-types "^1.1.0"
+
+bootstrap-scss@^4.3.1:
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/bootstrap-scss/-/bootstrap-scss-4.5.2.tgz#c2df80ca1bdff0986dd6d86e3dcb3e53795f0e10"
+  integrity sha512-+eDYEFEri/byFAOkSCF2ZnAf7Zyml8Q3YSB8kn/Lviqqi2D1XKhfJCizqgcxqXncgRElk1WNnESRa50GQSVZjA==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -4220,9 +4237,9 @@ lodash.debounce@^4.0.8:
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
 lodash.mergewith@^4.6.0:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.1.tgz#639057e726c3afbdb3e7d42741caa8d6e4335927"
-  integrity sha512-eWw5r+PYICtEBgrBE5hhlT6aAa75f411bgDz/ZL2KZqYV03USvucsxcHUIlGTDTECs1eunpI7HOV7U+WLDvNdQ==
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.2.tgz#617121f89ac55f59047c7aec1ccd6654c6590f55"
+  integrity sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==
 
 lodash.tail@^4.1.1:
   version "4.1.1"
